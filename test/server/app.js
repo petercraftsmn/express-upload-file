@@ -7,12 +7,14 @@ app.post( '/', function ( req, res, next ) {
 } );
 
 app.use( function ( req, res, next ) {
-    res.status( 404 ).send( "Not found" );
+    res.status( 404 );
+    res.json( { text: "file not found" } );
 } );
 
 app.use( function ( err, req, res, next ) {
     console.log( err.stack );
-    res.status( 500 ).send( "Something is wrong" );
+    res.status( 500 );
+    res.json( { text: "Something is wrong" } );
 } );
 
 module.exports = app;

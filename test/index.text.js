@@ -11,3 +11,13 @@ describe( 'POST / ', function () {
             .expect( '{"text":"file uploaded"}' )
     } );
 } );
+
+describe( 'GET / ', function () {
+    it( 'File not found', function () {
+        return request( app )
+            .get( '/' )
+            .expect( 404 )
+            .expect( 'Content-Type', /json/ )
+            .expect( '{"text":"file not found"}' )
+    } );
+} );

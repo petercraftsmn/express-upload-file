@@ -8,7 +8,7 @@ describe( 'POST / ', function () {
             .attach( 'file', __dirname + '/fixture/niagra_falls.jpg' )
             .expect( 200 )
             .expect( 'Content-Type', /json/ )
-            .expect( '{"text":"file uploaded"}' )
+            .expect( '{"text":"all is well!"}' )
     } );
 } );
 

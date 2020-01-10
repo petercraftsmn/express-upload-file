@@ -1,6 +1,6 @@
 const multer = require( 'multer' );
 
-class MulterService {
+class UploadService {
     constructor( uploadDir, uploadFieldName, multipleFiles = false ) {
 
         this.uploadDir = __dirname + uploadDir || '/uploads';
@@ -16,5 +16,4 @@ class MulterService {
 
 }
 
-
-module.exports = MulterService;
+module.exports = UploadService;

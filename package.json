@@ -1,0 +1,24 @@
+{
+  "name": "express-upload-file",
+  "version": "1.0.0",
+  "description": "Express js file photo upload middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petercraftsmn/express-upload-file.git"
+  },
+  "keywords": [
+    "Express",
+    "js",
+    "Upload",
+    "Photo",
+    "Image",
+    "File"
+  ],
+  "author": "Peter Craftsmn",
+  "license": "ISC",
+  "homepage": "https://github.com/petercraftsmn/express-upload#readme"
+}

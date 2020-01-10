@@ -1,13 +1,13 @@
 const request = require( 'supertest' );
 const app = require( './server/app' );
 
-describe( 'GET / ', function () {
-    it( 'Returns response', function () {
+describe( 'POST / ', function () {
+    it( 'Uploads the jpg photo file', function () {
         return request( app )
-            .get( '/' )
+            .post( '/' )
+            .attach( 'photo', __dirname + '/fixture/niagra_falls.jpg' )
             .expect( 200 )
-            .expect('Content-Type',/json/)
-            .expect( '{"text":"all is well!"}' )
-
+            .expect( 'Content-Type', /json/ )
+            .expect( '{"text":"file uploaded"}' )
     } );
 } );

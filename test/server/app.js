@@ -1,10 +1,8 @@
 const express = require( 'express' );
-const path = require( 'path' );
-// const multer = require( 'multer' );
-
 const app = express();
 
-app.use( '/', function ( req, res, next ) {
+
+app.post( '/', function ( req, res, next ) {
     res.json( { text: "all is well!" } )
 } );
 

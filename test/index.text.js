@@ -5,7 +5,7 @@ describe( 'POST / ', function () {
     it( 'Uploads the jpg photo file', function () {
         return request( app )
             .post( '/' )
-            .attach( 'photo', __dirname + '/fixture/niagra_falls.jpg' )
+            .attach( 'file', __dirname + '/fixture/niagra_falls.jpg' )
             .expect( 200 )
             .expect( 'Content-Type', /json/ )
             .expect( '{"text":"file uploaded"}' )

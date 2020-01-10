@@ -4,7 +4,7 @@
   "description": "Express js file photo upload middleware",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,22 @@
     "Image",
     "File"
   ],
-  "author": "Peter Craftsmn",
-  "license": "ISC",
-  "homepage": "https://github.com/petercraftsmn/express-upload#readme"
+  "author": {
+    "name": "Peter Craftsmn",
+    "email": "peter.craftsmn@gmail.com"
+  },
+  "license": "(ISC OR GPL-3.0)",
+  "bugs": {
+    "url": "https://github.com/petercraftsmn/express-upload/issues",
+    "email": "peter.craftsmn@gmail.com"
+  },
+  "homepage": "https://github.com/petercraftsmn/express-upload#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "mocha": "^7.0.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "multer": "^1.4.2"
+  }
 }

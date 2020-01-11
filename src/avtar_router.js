@@ -12,6 +12,9 @@ const multer = require( './multerFunctions' );
 const avtar_c = require( './avtar_controller' );
 const avtar_m = require( './avtar_middleware' );
 const avtar_s = require( './AvtarService' );
+const uploadService = require( './UploadService' );
+
+const us = new uploadService();
 
 // Initiate avtar service and set upload directory
 const avtarHandlerService = new avtar_s( path.resolve( __dirname, '..', 'uploads' ) );
@@ -19,7 +22,7 @@ const avtarHandlerService = new avtar_s( path.resolve( __dirname, '..', 'uploads
 // UPLOAD AVTAR
 // Private: Upload avtar image for the user in the token
 router.post( '/',
-    multer.upload.single( 'avtar' ),
+    us.upload.single( 'avtar' ),
     avtar_m.handleAvtarSave( avtarHandlerService ),
     avtar_c.sendCreateResponse );
 

@@ -8,11 +8,8 @@ const multer = require( 'multer' );
 
 class ParseService {
     constructor() {
-
         this.storage = multer.memoryStorage();
-
         this.fileSize = { fileSize: 6 * 1024 * 1024 };
-
         this.fileFilter = function fileFilter( req, file, cb ) {
             let type = file.mimetype;
             let typeArray = type.split( "/" );
@@ -26,7 +23,6 @@ class ParseService {
                 cb( null, false );
             }
         };
-
         this.parseFromField = multer( {
             storage: this.storage,
             limits: this.fileSize,

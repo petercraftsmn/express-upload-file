@@ -2,6 +2,7 @@ const multer = require( 'multer' );
 
 class UploadService {
     constructor() {
+
         this.storage = multer.memoryStorage();
 
         this.fileSize = { fileSize: 6 * 1024 * 1024 };
@@ -25,6 +26,10 @@ class UploadService {
             limits: this.fileSize,
             fileFilter: this.fileFilter,
         } );
+    }
+
+    parseSingleFileFrom( fieldName ) {
+        return this.parseFromField.single( fieldName );
     }
 }
 

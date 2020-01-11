@@ -1,6 +1,6 @@
 const multer = require( 'multer' );
 
-class UploadService {
+class ParseService {
     constructor() {
 
         this.storage = multer.memoryStorage();
@@ -32,8 +32,13 @@ class UploadService {
         return this.parseFromField.single( fieldName );
     }
 
+    /**
+     * Create upload directory if not present already
+     */
+
+
 }
 
-module.exports = UploadService;
+module.exports = ParseService;
 
 

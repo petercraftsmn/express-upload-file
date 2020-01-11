@@ -12,9 +12,7 @@ const multer = require( './multerFunctions' );
 const avtar_c = require( './avtar_controller' );
 const avtar_m = require( './avtar_middleware' );
 const avtar_s = require( './AvtarService' );
-const parseService = require( './ParseService' );
-
-const ps = new parseService();
+const ps = require( './ParseService' );
 
 // Initiate avtar service and set upload directory
 const avtarHandlerService = new avtar_s( path.resolve( __dirname, '..', 'uploads' ) );

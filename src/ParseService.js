@@ -41,6 +41,6 @@ class ParseService {
 
 }
 
-module.exports = ParseService;
+module.exports = new ParseService();
 
 

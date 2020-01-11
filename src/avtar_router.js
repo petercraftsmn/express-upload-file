@@ -22,7 +22,7 @@ const avtarHandlerService = new avtar_s( path.resolve( __dirname, '..', 'uploads
 // UPLOAD AVTAR
 // Private: Upload avtar image for the user in the token
 router.post( '/',
-    us.upload.single( 'avtar' ),
+    us.parseFromField.single( 'avtar' ),
     avtar_m.handleAvtarSave( avtarHandlerService ),
     avtar_c.sendCreateResponse );
 

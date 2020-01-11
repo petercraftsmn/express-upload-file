@@ -20,7 +20,7 @@ class UploadService {
             }
         };
 
-        this.upload = multer( {
+        this.parseFromField = multer( {
             storage: this.storage,
             limits: this.fileSize,
             fileFilter: this.fileFilter,

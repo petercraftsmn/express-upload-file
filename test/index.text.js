@@ -1,25 +1,37 @@
 const request = require( 'supertest' );
 const app = require( './server/app' );
+const fs = require( 'fs' );
+const path = require( 'path' );
 
-describe( 'POST / ', function () {
-    it( 'Uploads the jpg photo file', function () {
-        const fileName = 'niagra_falls.jpg';
-        return request( app )
-            .post( '/' )
-            .attach( 'avtar', __dirname + '/fixture/' + fileName )
-            .expect( 200 )
-            .expect( 'Content-Type', /json/ )
-            .expect( `{"message":"${ fileName } is uploaded successfully"}` )
+const fileName = 'niagra_falls.jpg';
+const filePath = __dirname + '/fixture/' + fileName;
+
+describe( 'Upload Service Tests', function () {
+
+    after( function () {
+        fs.unlink( path.resolve( 'uploads/', fileName ),
+            ( err, result ) => console.log( err ) );
     } );
-} );
 
-describe( 'GET / ', function () {
-    it( 'File not found', function () {
-        return request( app )
-            .get( '/' )
-            .expect( 404 )
-            .expect( 'Content-Type', /json/ )
-            .expect( '{"text":"file not found"}' )
+    describe( 'POST / ', function () {
+        it( 'Uploads the jpg photo file', function () {
+            return request( app )
+                .post( '/' )
+                .attach( 'avtar', filePath )
+                .expect( 200 )
+                .expect( 'Content-Type', /json/ )
+                .expect( `{"message":"${ fileName } is uploaded successfully"}` )
+        } );
+    } );
+
+    describe( 'GET / ', function () {
+        it( 'File not found', function () {
+            return request( app )
+                .get( '/' + fileName )
+                .expect( 404 )
+                .expect( 'Content-Type', /json/ )
+                .expect( '{"text":"file not found"}' )
+        } );
     } );
 } );
 

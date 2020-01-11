@@ -31,6 +31,7 @@ class UploadService {
     parseSingleFileFrom( fieldName ) {
         return this.parseFromField.single( fieldName );
     }
+
 }
 
 module.exports = UploadService;

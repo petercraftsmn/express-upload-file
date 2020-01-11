@@ -10,7 +10,7 @@ module.exports.handleAvtarSave = avtar => async ( req, res, next ) => {
     if ( req.file.mimetype !== 'image/png' && req.file.mimetype !== 'image/jpeg' ) {
         return next( new Error( 'File format is not supported' ) );
     }
-    req.file.storedFilename = await avtar.store( req.file.buffer );
+    req.file.storedFilename = await avtar.store( req );
     return next()
 };
 

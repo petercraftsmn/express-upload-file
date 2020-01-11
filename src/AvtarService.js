@@ -16,16 +16,16 @@ class AvtarService {
         this.directory = directory;
     }
 
-    async store( buffer ) {
+    async store( req ) {
 
-        const fileName = AvtarService.fileName();
+        const fileName = AvtarService.fileName( req );
         const filepath = this.filepath( fileName );
 
         if ( fs.existsSync( filepath ) ) {
             this.delete( fileName )
         }
 
-        await sharp( buffer ).resize( 300, 300, {
+        await sharp( req.file.buffer ).resize( 300, 300, {
             fit: sharp.fit.inside,
             withoutEnlargement: true
         } )
@@ -34,8 +34,12 @@ class AvtarService {
         return fileName;
     }
 
-    static fileName( userId ) {
-        return `avtar-${ userId }.png`;
+    static fileName( req ) {
+        if ( req.user && req.user.id ) {
+            return `avtar-${ req.user.id }.png`;
+        } else {
+            return req.file.originalname;
+        }
     }
 
     filepath( fileName ) {

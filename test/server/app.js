@@ -1,10 +1,11 @@
 const express = require( 'express' );
+const uploadService = require( '../../src/UploadService' );
+const avtarRouter = require( '../../src/avtar_router' );
+
 const app = express();
+const us = new uploadService();
 
-
-app.post( '/', function ( req, res, next ) {
-    res.json( { text: "all is well!" } )
-} );
+app.post( '/', avtarRouter );
 
 app.use( function ( req, res, next ) {
     res.status( 404 );

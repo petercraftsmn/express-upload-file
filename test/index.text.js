@@ -3,12 +3,13 @@ const app = require( './server/app' );
 
 describe( 'POST / ', function () {
     it( 'Uploads the jpg photo file', function () {
+        const fileName = 'niagra_falls.jpg';
         return request( app )
             .post( '/' )
-            .attach( 'file', __dirname + '/fixture/niagra_falls.jpg' )
+            .attach( 'avtar', __dirname + '/fixture/' + fileName )
             .expect( 200 )
             .expect( 'Content-Type', /json/ )
-            .expect( '{"text":"all is well!"}' )
+            .expect( `{"message":"${ fileName } is uploaded successfully"}` )
     } );
 } );
 

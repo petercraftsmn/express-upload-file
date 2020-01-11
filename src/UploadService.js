@@ -14,6 +14,10 @@ class UploadService {
         }
     }
 
+    fileUpload() {
+        return this.upload;
+    }
+
 }
 
 module.exports = UploadService;
